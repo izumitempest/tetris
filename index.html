@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tetris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Tetris</h1>
+      <div class="controls-help">
+        <button id="btn-new" title="Start a new game (N)">New</button>
+        <button id="btn-pause" title="Pause/Resume (P)">Pause</button>
+        <button id="btn-audio" title="Toggle sound (M)">🔊</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="sidebar left">
+        <div class="panel">
+          <h2>Hold</h2>
+          <canvas id="hold" width="120" height="120"></canvas>
+          <div class="hint">Press [C] to Hold</div>
+        </div>
+
+        <div class="panel stats">
+          <h2>Stats</h2>
+          <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+          <div class="stat"><span>Level</span><strong id="level">1</strong></div>
+          <div class="stat"><span>Lines</span><strong id="lines">0</strong></div>
+          <div class="stat"><span>APM</span><strong id="apm">0</strong></div>
+        </div>
+      </section>
+
+      <section class="playfield">
+        <canvas id="board" width="300" height="600"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-content">
+            <h3 id="overlay-title">Paused</h3>
+            <p id="overlay-msg">Press P to resume</p>
+            <button id="overlay-action">Resume</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="sidebar right">
+        <div class="panel">
+          <h2>Next</h2>
+          <div class="next-list">
+            <canvas class="next" data-idx="0" width="120" height="80"></canvas>
+            <canvas class="next" data-idx="1" width="120" height="80"></canvas>
+            <canvas class="next" data-idx="2" width="120" height="80"></canvas>
+            <canvas class="next" data-idx="3" width="120" height="80"></canvas>
+            <canvas class="next" data-idx="4" width="120" height="80"></canvas>
+          </div>
+        </div>
+
+        <div class="panel help">
+          <h2>Controls</h2>
+          <ul>
+            <li><strong>←/→</strong>: Move</li>
+            <li><strong>↓</strong>: Soft drop</li>
+            <li><strong>↑ / X</strong>: Rotate CW</li>
+            <li><strong>Z</strong>: Rotate CCW</li>
+            <li><strong>A</strong>: 180° Rotate</li>
+            <li><strong>Space</strong>: Hard drop</li>
+            <li><strong>C</strong>: Hold</li>
+            <li><strong>P</strong>: Pause</li>
+            <li><strong>N</strong>: New game</li>
+            <li><strong>M</strong>: Mute</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bottombar">
+      <span>Made with stress by Izumi</span>
+      <span class="sep">·</span>
+      <span>SRS, 7-bag, T-Spins, Combo, B2B</span>
+    </footer>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
